@@ -23,7 +23,8 @@ docker run --rm -e GOOS=windows -v "${PWD}:/xk6" `
   grafana/xk6:0.13.0 build --output k6.exe `
   --with gitlab.com/szkiba/xk6-banner `
   --with github.com/szkiba/xk6-dotenv `
-  --with github.com/grafana/xk6-faker
+  --with github.com/grafana/xk6-faker `
+  --with github.com/grafana/xk6-dashboard@0.7.5
 
 .\k6.exe run .\browser-test.js --config .\options.json
 
@@ -33,8 +34,4 @@ docker run --rm -e GOOS=windows -v "${PWD}:/xk6" `
 
 Investigate plugins:
 
-- https://gitlab.com/szkiba/xk6-banner
 - https://github.com/szkiba/xk6-csv
-- https://github.com/szkiba/xk6-dotenv
-- https://github.com/grafana/xk6-faker
-- https://github.com/nicholasvuono/xk6-playwright

@@ -3,6 +3,10 @@ import { check } from 'https://jslib.k6.io/k6-utils/1.5.0/index.js';
 import { banner } from "k6/x/banner";
 import faker from "k6/x/faker";
 
+export function setup() {
+    banner(faker.person.firstName(), { color: "purple", font: "banner" });
+}
+
 export default async function () {
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -19,7 +23,6 @@ export default async function () {
             header: async (h2) => (await h2.textContent()) == 'Welcome, admin!',
         });
     } finally {
-        banner(faker.person.firstName(), { color: "purple", font: "banner" });
         await page.close();
     }
 }
