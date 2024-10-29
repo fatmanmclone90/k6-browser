@@ -24,14 +24,32 @@ docker run --rm -e GOOS=windows -v "${PWD}:/xk6" `
   --with gitlab.com/szkiba/xk6-banner `
   --with github.com/szkiba/xk6-dotenv `
   --with github.com/grafana/xk6-faker `
-  --with github.com/grafana/xk6-dashboard@0.7.5
+  --with github.com/grafana/xk6-dashboard@v0.7.5
 
 .\k6.exe run .\browser-test.js --config .\options.json
 
 ```
 
+## Dockerfile
+
+- Only supports Chromium browser
+
+Build
+
+```Powershell
+docker build . -t k6-docker
+```
+
+Execute
+
+```Powershell
+docker run -it k6-docker --config options.json 
+```
+
 ## To Do
 
-Investigate plugins:
-
-- https://github.com/szkiba/xk6-csv
+- Investigate plugins:
+  - https://github.com/szkiba/xk6-csv
+- Dockerfiles
+  - Override config using mount
+  - Extract HTML report
