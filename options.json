@@ -2,8 +2,8 @@
     "scenarios": {
         "ui": {
             "executor": "shared-iterations",
-            "vus": 1,
-            "iterations": 20,
+            "vus": 2,
+            "iterations": 10,
             "maxDuration": "1m",
             "options": {
                 "browser": {
