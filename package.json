@@ -1,0 +1,20 @@
+{
+  "name": "k6-browser",
+  "version": "1.0.0",
+  "description": "Playing around with K6 extensions.",
+  "main": "browser-test.js",
+  "scripts": {
+    "lint:fix": "npx eslint browser-test.js --fix",
+    "lint:check": "npx eslint browser-test.js"
+  },
+  "author": "Chris Tamlyn",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.11.0",
+    "prettier": "3.3.3"
+  }
+}
