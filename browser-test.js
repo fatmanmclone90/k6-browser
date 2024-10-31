@@ -3,6 +3,8 @@ import { check } from 'https://jslib.k6.io/k6-utils/1.5.0/index.js'
 import { banner } from 'k6/x/banner'
 import faker from 'k6/x/faker'
 import { Trend } from 'k6/metrics'
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
 const pageLoad = new Trend('page_load')
 var start
@@ -38,3 +40,10 @@ export default async function () {
         await page.close()
     }
 }
+
+export function handleSummary(data) {
+    return {
+      "result.html": htmlReport(data),
+      stdout: textSummary(data, { indent: " ", enableColors: true }),
+    };
+  }
